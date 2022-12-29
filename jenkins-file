@@ -5,7 +5,7 @@ pipeline {
     stage('print') {
         steps {
 
-        'echo 'Helloword'
+        echo 'Helloword'
               }
     }
     stage ('checkout') {
