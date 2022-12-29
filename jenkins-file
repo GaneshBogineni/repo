@@ -9,19 +9,18 @@ pipeline {
      }
     stage ('checkout') {
       steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfig: [[url: 'https://github.com/amitvermaa93/jenkins-git-integration.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/amitvermaa93/jenkins-git-integration.git']]])
       }
     }
     stage ('build') {
       steps {
-        sh "mvn clean verify"
-        sh "mvn install"
+        sh 'mvn clean verify'
       }
      }
   }
   post {
     always {
-          echo " thanks for running the job "
+          echo '"Thanks for running the job"'
     }
   }
 }
